@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sirmaxo Market Research Survey 2025–26</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #1a1f2e;
+    --ink-soft: #4a5068;
+    --ink-muted: #8b93ad;
+    --bg: #f5f3ef;
+    --card: #ffffff;
+    --accent: #1b5e7b;
+    --accent-light: #e8f4f8;
+    --accent-warm: #e8874a;
+    --line: #e2dfd8;
+    --success: #2d7a5b;
+    --radius: 14px;
+    --shadow: 0 2px 16px rgba(26,31,46,0.07);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  /* ── HERO HEADER ── */
+  .hero {
+    background: var(--accent);
+    padding: 52px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(232,135,74,0.18) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.06) 0%, transparent 50%);
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(24px, 5vw, 38px);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .hero h1 em { font-style: italic; color: #f9c78a; }
+  .hero p {
+    color: rgba(255,255,255,0.78);
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 28px;
+    position: relative;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: #fff;
+  }
+  .stat span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.2);
+    height: 36px;
+    align-self: center;
+  }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    padding: 10px 24px;
+    position: sticky; top: 0;
+    z-index: 100;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .progress-label { font-size: 12px; color: var(--ink-muted); white-space: nowrap; }
+  .progress-bar {
+    flex: 1;
+    height: 5px;
+    background: var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #2b8ab0);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+  .progress-pct { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ── SECTION BLOCKS ── */
+  .section-block {
+    display: none;
+  }
+  .section-block.active {
+    display: block;
+    animation: fadeUp 0.35s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-heading {
+    margin-top: 36px;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-heading .tag {
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 3px 10px;
+    border-radius: 50px;
+  }
+  .section-heading h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--ink);
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.2s;
+  }
+  .card:focus-within {
+    box-shadow: 0 0 0 2px var(--accent), var(--shadow);
+  }
+
+  .q-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .q-label .req { color: var(--accent-warm); margin-left: 2px; }
+  .q-hint {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── INPUTS ── */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    border: 1.5px solid var(--line);
+    border-radius: 9px;
+    padding: 11px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: #fafaf8;
+    outline: none;
+    transition: border 0.2s, background 0.2s;
+    -webkit-appearance: none;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--accent);
+    background: #fff;
+  }
+  textarea { resize: vertical; min-height: 90px; }
+
+  /* ── CHOICE PILLS ── */
+  .choice-group {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .choice-pill input { display: none; }
+  .choice-pill label {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 50px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+    background: #fafaf8;
+  }
+  .choice-pill input:checked + label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 500;
+  }
+  .choice-pill label:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* ── CHECKBOX ROWS ── */
+  .checkbox-group { display: flex; flex-direction: column; gap: 9px; }
+  .cb-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.18s;
+    background: #fafaf8;
+  }
+  .cb-item:hover { border-color: var(--accent); background: var(--accent-light); }
+  .cb-item input[type="checkbox"] {
+    width: 17px; height: 17px; min-width: 17px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .cb-item span { font-size: 13.5px; color: var(--ink-soft); }
+  .cb-item:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  .cb-item:has(input:checked) span { color: var(--accent); font-weight: 500; }
+
+  /* ── STAR / SCALE ── */
+  .scale-group {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .scale-row { }
+  .scale-label-top {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .scale-label-top strong { color: var(--ink); font-weight: 600; }
+  .scale-pills {
+    display: flex; gap: 6px;
+  }
+  .scale-pills label {
+    flex: 1;
+    text-align: center;
+    padding: 9px 4px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--ink-soft);
+    background: #fafaf8;
+    transition: all 0.15s;
+  }
+  .scale-pills input { display: none; }
+  .scale-pills input:checked + label {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+  }
+  .scale-pills label:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+  .scale-end-labels {
+    display: flex; justify-content: space-between;
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+    padding: 0 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .part-divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 28px 0 20px;
+  }
+  .part-divider span {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+  .part-divider::before, .part-divider::after {
+    content: ''; flex: 1;
+    height: 1px; background: var(--line);
+  }
+
+  /* ── NAVIGATION BUTTONS ── */
+  .nav-row {
+    display: flex; gap: 10px; margin-top: 30px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 13px 28px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(27,94,123,0.3);
+  }
+  .btn-primary:hover {
+    background: #144d66;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(27,94,123,0.35);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--line);
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--success), #1e9e70);
+    color: #fff;
+    padding: 14px 36px;
+    box-shadow: 0 4px 16px rgba(45,122,91,0.3);
+  }
+  .btn-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(45,122,91,0.38);
+  }
+
+  /* ── FACILITY SELECTOR ── */
+  .facility-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .facility-card input { display: none; }
+  .facility-card label {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px;
+    padding: 18px 12px;
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    background: #fafaf8;
+    transition: all 0.2s;
+    min-height: 90px;
+    justify-content: center;
+  }
+  .facility-card label .icon {
+    font-size: 26px;
+    line-height: 1;
+  }
+  .facility-card label:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+  .facility-card input:checked + label {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(27,94,123,0.25);
+  }
+
+  /* ── THANK YOU ── */
+  .thankyou {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .thankyou.active { display: block; animation: fadeUp 0.4s ease; }
+  .thankyou .check-circle {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--success), #1e9e70);
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(45,122,91,0.3);
+  }
+  .thankyou h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .thankyou p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* ── PRODUCT TABLE ── */
+  .product-row {
+    border: 1.5px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: #fafaf8;
+  }
+  .product-row-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .product-row-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .sub-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 500px) {
+    .facility-grid { grid-template-columns: 1fr 1fr; }
+    .product-row-fields { grid-template-columns: 1fr; }
+    .hero-stats { gap: 16px; }
+    .stat strong { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🧪 Sirmaxo · Research Survey</div>
+  <h1>Help us understand<br/><em>infection control</em> in your facility</h1>
+  <p>We're listening — your honest experience with products and suppliers shapes what we build next. Completely confidential. No sales pitch.</p>
+  <div class="hero-stats">
+    <div class="stat"><strong>~10 min</strong><span>to complete</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><strong>100%</strong><span>confidential</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><strong>2025–26</strong><span>survey</span></div>
+  </div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <span class="progress-label">Progress</span>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<div class="container">
+
+  <!-- ════════════════════════════ SECTION 0 – FACILITY ════════════════════════════ -->
+  <div class="section-block active" id="sec0">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 1 of 6</span>
+      <h2>Your Facility</h2>
+    </div>
+    <p class="section-sub">Let's start simple — which type of healthcare setting are you from? We'll tailor the next questions just for you.</p>
+
+    <div class="card">
+      <div class="q-label">Which best describes your facility? <span class="req">*</span></div>
+      <div class="q-hint">Select one — we'll personalise the survey from here.</div>
+      <div class="facility-grid" id="facilityGrid">
+        <div class="facility-card">
+          <input type="radio" name="facility" id="fac_nursing" value="nursing"/>
+          <label for="fac_nursing"><span class="icon">🏡</span>Nursing Home / Care Home</label>
+        </div>
+        <div class="facility-card">
+          <input type="radio" name="facility" id="fac_dental" value="dental"/>
+          <label for="fac_dental"><span class="icon">🦷</span>Dental Clinic</label>
+        </div>
+        <div class="facility-card">
+          <input type="radio" name="facility" id="fac_dialysis" value="dialysis"/>
+          <label for="fac_dialysis"><span class="icon">💉</span>Dialysis Unit</label>
+        </div>
+        <div class="facility-card">
+          <input type="radio" name="facility" id="fac_ophthal" value="ophthal"/>
+          <label for="fac_ophthal"><span class="icon">👁️</span>Ophthalmology Clinic</label>
+        </div>
+        <div class="facility-card" style="grid-column: span 2;">
+          <input type="radio" name="facility" id="fac_endoscopy" value="endoscopy"/>
+          <label for="fac_endoscopy" style="flex-direction:row; justify-content:center;"><span class="icon">🔬</span>Endoscopy Unit</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-primary" onclick="goTo('sec1')">Let's begin →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SECTION 1 – ABOUT ════════════════════════════ -->
+  <div class="section-block" id="sec1">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 2 of 6</span>
+      <h2>About Your Facility</h2>
+    </div>
+    <p class="section-sub">Just a few quick details so we can understand your context — no identifying info is shared.</p>
+
+    <div class="card">
+      <div class="q-label">Name of your facility <span class="req">*</span></div>
+      <div class="q-hint">e.g. "Sunshine Care Home" or "City Dental Practice"</div>
+      <input type="text" placeholder="Facility name…" />
+    </div>
+
+    <div class="card">
+      <div class="q-label">City or Town <span class="req">*</span></div>
+      <input type="text" placeholder="e.g. Mumbai, Pune, Delhi…" />
+    </div>
+
+    <div class="card">
+      <div class="q-label">How big is your facility?</div>
+      <div class="q-hint">Beds / chairs / machines — whatever fits your context</div>
+      <input type="number" placeholder="e.g. 40 beds" />
+    </div>
+
+    <div class="card">
+      <div class="q-label">Approximate monthly spend on infection control products (INR)</div>
+      <div class="q-hint">A rough estimate is perfectly fine</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="spend" id="s1"/><label for="s1">Under ₹5,000</label></div>
+        <div class="choice-pill"><input type="radio" name="spend" id="s2"/><label for="s2">₹5k–₹20k</label></div>
+        <div class="choice-pill"><input type="radio" name="spend" id="s3"/><label for="s3">₹20k–₹50k</label></div>
+        <div class="choice-pill"><input type="radio" name="spend" id="s4"/><label for="s4">₹50k–₹1 lakh</label></div>
+        <div class="choice-pill"><input type="radio" name="spend" id="s5"/><label for="s5">Over ₹1 lakh</label></div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goTo('sec0')">← Back</button>
+      <button class="btn btn-primary" onclick="goTo('sec2')">Next →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SECTION 2 – PRODUCTS ════════════════════════════ -->
+  <div class="section-block" id="sec2">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 3 of 6</span>
+      <h2>Current Products</h2>
+    </div>
+    <p class="section-sub">Tell us what you're using today — brand names if you remember them, and an honest rating. This helps us understand the market, not judge your choices.</p>
+
+    <div class="part-divider"><span>Products in use</span></div>
+
+    <div class="product-row">
+      <div class="product-row-name">🖐 Handrub / Alcohol Hand Sanitizer</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction (1 = poor, 5 = great)</div>
+          <div class="scale-pills" style="gap:4px;">
+            <input type="radio" name="sat_hr" id="hr1"/><label for="hr1">1</label>
+            <input type="radio" name="sat_hr" id="hr2"/><label for="hr2">2</label>
+            <input type="radio" name="sat_hr" id="hr3"/><label for="hr3">3</label>
+            <input type="radio" name="sat_hr" id="hr4"/><label for="hr4">4</label>
+            <input type="radio" name="sat_hr" id="hr5"/><label for="hr5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-row-name">🧴 Surgical Handscrub</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction</div>
+          <div class="scale-pills">
+            <input type="radio" name="sat_hs" id="hs1"/><label for="hs1">1</label>
+            <input type="radio" name="sat_hs" id="hs2"/><label for="hs2">2</label>
+            <input type="radio" name="sat_hs" id="hs3"/><label for="hs3">3</label>
+            <input type="radio" name="sat_hs" id="hs4"/><label for="hs4">4</label>
+            <input type="radio" name="sat_hs" id="hs5"/><label for="hs5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-row-name">🧹 Surface Disinfectant</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction</div>
+          <div class="scale-pills">
+            <input type="radio" name="sat_sd" id="sd1"/><label for="sd1">1</label>
+            <input type="radio" name="sat_sd" id="sd2"/><label for="sd2">2</label>
+            <input type="radio" name="sat_sd" id="sd3"/><label for="sd3">3</label>
+            <input type="radio" name="sat_sd" id="sd4"/><label for="sd4">4</label>
+            <input type="radio" name="sat_sd" id="sd5"/><label for="sd5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-row-name">💊 Skin Antiseptic</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction</div>
+          <div class="scale-pills">
+            <input type="radio" name="sat_sa" id="sa1"/><label for="sa1">1</label>
+            <input type="radio" name="sat_sa" id="sa2"/><label for="sa2">2</label>
+            <input type="radio" name="sat_sa" id="sa3"/><label for="sa3">3</label>
+            <input type="radio" name="sat_sa" id="sa4"/><label for="sa4">4</label>
+            <input type="radio" name="sat_sa" id="sa5"/><label for="sa5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-row-name">🔧 Instrument Pre-Cleaner / Enzymatic Detergent</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction</div>
+          <div class="scale-pills">
+            <input type="radio" name="sat_en" id="en1"/><label for="en1">1</label>
+            <input type="radio" name="sat_en" id="en2"/><label for="en2">2</label>
+            <input type="radio" name="sat_en" id="en3"/><label for="en3">3</label>
+            <input type="radio" name="sat_en" id="en4"/><label for="en4">4</label>
+            <input type="radio" name="sat_en" id="en5"/><label for="en5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-row-name">⚗️ High-Level Disinfectant / Cold Sterilant</div>
+      <div class="product-row-fields">
+        <div>
+          <div class="sub-label">Brand you use</div>
+          <input type="text" placeholder="Brand name…"/>
+        </div>
+        <div>
+          <div class="sub-label">Satisfaction</div>
+          <div class="scale-pills">
+            <input type="radio" name="sat_hld" id="hld1"/><label for="hld1">1</label>
+            <input type="radio" name="sat_hld" id="hld2"/><label for="hld2">2</label>
+            <input type="radio" name="sat_hld" id="hld3"/><label for="hld3">3</label>
+            <input type="radio" name="sat_hld" id="hld4"/><label for="hld4">4</label>
+            <input type="radio" name="sat_hld" id="hld5"/><label for="hld5">5</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goTo('sec1')">← Back</button>
+      <button class="btn btn-primary" onclick="goTo('sec3')">Next →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SECTION 3 – BUYING ════════════════════════════ -->
+  <div class="section-block" id="sec3">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 4 of 6</span>
+      <h2>How You Buy</h2>
+    </div>
+    <p class="section-sub">Understanding your procurement process helps us figure out how to be genuinely useful — not just another sales call.</p>
+
+    <div class="card">
+      <div class="q-label">Who makes the final purchasing decision? <span class="req">*</span></div>
+      <div class="q-hint">Select all that apply</div>
+      <div class="checkbox-group">
+        <label class="cb-item"><input type="checkbox"/><span>Matron / Head Nurse</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Administrator / Owner</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Infection Control Committee</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Purchase Manager</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Doctor / Medical Director</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Other</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">How often do you re-order infection control products?</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro1"/><label for="ro1">Weekly</label></div>
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro2"/><label for="ro2">Fortnightly</label></div>
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro3"/><label for="ro3">Monthly</label></div>
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro4"/><label for="ro4">Every 2–3 months</label></div>
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro5"/><label for="ro5">As needed</label></div>
+        <div class="choice-pill"><input type="radio" name="reorder" id="ro6"/><label for="ro6">Annual tender</label></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">Where do you currently purchase products?</div>
+      <div class="q-hint">Select all that apply</div>
+      <div class="checkbox-group">
+        <label class="cb-item"><input type="checkbox"/><span>Local distributor</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Direct from manufacturer</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Online (e.g. IndiaMART, Amazon B2B)</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Hospital pharmacy supplier</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Government tender</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Buying group / GPO</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">How do you find out about new products?</div>
+      <div class="q-hint">Select all that apply</div>
+      <div class="checkbox-group">
+        <label class="cb-item"><input type="checkbox"/><span>Medical representative visit</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Word of mouth from colleagues</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Conferences or CMEs</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Online research</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Trade journals</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Social media</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>NABH guidelines</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Distributor recommendation</span></label>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goTo('sec2')">← Back</button>
+      <button class="btn btn-primary" onclick="goTo('sec4')">Next →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SECTION 4 – PAIN POINTS ════════════════════════════ -->
+  <div class="section-block" id="sec4">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 5 of 6</span>
+      <h2>What's Not Working</h2>
+    </div>
+    <p class="section-sub">The honest stuff. We genuinely want to know the frustrations — this is where your feedback matters most.</p>
+
+    <div class="card">
+      <div class="q-label">Overall, how satisfied are you with your current product range?</div>
+      <div class="scale-pills" style="margin-top:12px">
+        <input type="radio" name="overall_sat" id="os1"/><label for="os1">1<br/><span style="font-size:10px;opacity:0.7">Poor</span></label>
+        <input type="radio" name="overall_sat" id="os2"/><label for="os2">2</label>
+        <input type="radio" name="overall_sat" id="os3"/><label for="os3">3</label>
+        <input type="radio" name="overall_sat" id="os4"/><label for="os4">4</label>
+        <input type="radio" name="overall_sat" id="os5"/><label for="os5">5<br/><span style="font-size:10px;opacity:0.7">Great</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">What problems have you experienced with current products?</div>
+      <div class="q-hint">Select all that ring true</div>
+      <div class="checkbox-group">
+        <label class="cb-item"><input type="checkbox"/><span>Inconsistent quality batch to batch</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Skin irritation in staff</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Strong or unpleasant smell</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Short shelf life</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Doubts about efficacy</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Packaging issues (leaks, awkward sizes)</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Stockouts / supply gaps</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Unexpected price increases</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>Lack of certifications or test data</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>No issues — happy with current range</span></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">If you could change ONE thing about your current supplier, what would it be?</div>
+      <div class="q-hint">Be as candid as you like — this is read by our product team, not sales</div>
+      <textarea placeholder="e.g. Better communication on delivery timelines, more consistent formulation…"></textarea>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goTo('sec3')">← Back</button>
+      <button class="btn btn-primary" onclick="goTo('sec5')">Next →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ SECTION 5 – SIRMAXO ════════════════════════════ -->
+  <div class="section-block" id="sec5">
+    <div class="section-heading" style="margin-top:32px">
+      <span class="tag">Step 6 of 6</span>
+      <h2>Pricing & Sirmaxo</h2>
+    </div>
+    <p class="section-sub">Almost done! A few quick questions about what would make you consider switching — and whether a Sirmaxo trial is of interest.</p>
+
+    <div class="card">
+      <div class="q-label">What matters most when choosing an infection control brand? <span class="req">*</span></div>
+      <div class="q-hint">Pick your top priority</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="priority" id="p1"/><label for="p1">Price</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p2"/><label for="p2">Product efficacy</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p3"/><label for="p3">Brand reputation</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p4"/><label for="p4">Availability</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p5"/><label for="p5">Packaging</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p6"/><label for="p6">Certifications</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p7"/><label for="p7">Support & training</label></div>
+        <div class="choice-pill"><input type="radio" name="priority" id="p8"/><label for="p8">Sustainability</label></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">Would you be open to evaluating Sirmaxo products?</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="evaluate" id="ev1"/><label for="ev1">Yes, definitely</label></div>
+        <div class="choice-pill"><input type="radio" name="evaluate" id="ev2"/><label for="ev2">Yes, with a free trial</label></div>
+        <div class="choice-pill"><input type="radio" name="evaluate" id="ev3"/><label for="ev3">Maybe</label></div>
+        <div class="choice-pill"><input type="radio" name="evaluate" id="ev4"/><label for="ev4">Unlikely</label></div>
+        <div class="choice-pill"><input type="radio" name="evaluate" id="ev5"/><label for="ev5">No</label></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">What price saving would genuinely encourage you to switch?</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="saving" id="sv1"/><label for="sv1">10–15%</label></div>
+        <div class="choice-pill"><input type="radio" name="saving" id="sv2"/><label for="sv2">15–25%</label></div>
+        <div class="choice-pill"><input type="radio" name="saving" id="sv3"/><label for="sv3">More than 25%</label></div>
+        <div class="choice-pill"><input type="radio" name="saving" id="sv4"/><label for="sv4">Price isn't the main factor</label></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q-label">Would a free sample kit help you evaluate us?</div>
+      <div class="choice-group">
+        <div class="choice-pill"><input type="radio" name="sample" id="sm1"/><label for="sm1">Yes, definitely</label></div>
+        <div class="choice-pill"><input type="radio" name="sample" id="sm2"/><label for="sm2">Yes, with an evaluation period</label></div>
+        <div class="choice-pill"><input type="radio" name="sample" id="sm3"/><label for="sm3">Maybe</label></div>
+        <div class="choice-pill"><input type="radio" name="sample" id="sm4"/><label for="sm4">No</label></div>
+      </div>
+    </div>
+
+    <div class="part-divider"><span>Optional — Stay in touch</span></div>
+
+    <div class="card" style="background: linear-gradient(135deg, #f0f8fb, #e8f4f8); border-color: #c5dfe8;">
+      <div class="q-label">Your name</div>
+      <div class="q-hint">Only if you'd like us to follow up</div>
+      <input type="text" placeholder="Dr. / Ms. / Mr. …" style="background:#fff"/>
+    </div>
+
+    <div class="card">
+      <div class="q-label">Your designation / role</div>
+      <input type="text" placeholder="e.g. Head Nurse, Purchase Manager, Owner…" />
+    </div>
+
+    <div class="card">
+      <div class="q-label">Contact number or email</div>
+      <input type="text" placeholder="+91 98765 43210 or name@facility.com" />
+    </div>
+
+    <div class="card">
+      <div class="q-label">How would you prefer we follow up?</div>
+      <div class="checkbox-group">
+        <label class="cb-item"><input type="checkbox"/><span>📞 Phone call</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>💬 WhatsApp</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>📧 Email</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>🤝 In-person visit</span></label>
+        <label class="cb-item"><input type="checkbox"/><span>🙈 Stay anonymous — no follow-up</span></label>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="btn btn-ghost" onclick="goTo('sec4')">← Back</button>
+      <button class="btn btn-submit" onclick="submitForm()">Submit survey ✓</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════ THANK YOU ════════════════════════════ -->
+  <div class="thankyou" id="thankyou">
+    <div class="check-circle">✓</div>
+    <h2>Thank you so much.</h2>
+    <p>Your responses have been recorded. They'll directly inform how Sirmaxo develops and positions its products for facilities like yours.<br/><br/>
+    If you left contact details, someone from our team will be in touch — on your terms, no pressure.</p>
+    <br/>
+    <a href="https://www.sirmaxo.com" target="_blank" style="display:inline-block; margin-top:8px; padding:12px 28px; background:var(--accent); color:#fff; border-radius:50px; text-decoration:none; font-weight:600; font-size:14px;">Visit sirmaxo.com →</a>
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  const sections = ['sec0','sec1','sec2','sec3','sec4','sec5'];
+  const totalSteps = sections.length;
+
+  function goTo(id) {
+    // Validate facility selection on sec0
+    if (id === 'sec1') {
+      const selected = document.querySelector('input[name="facility"]:checked');
+      if (!selected) {
+        const grid = document.getElementById('facilityGrid');
+        grid.style.outline = '2px solid #e8874a';
+        grid.style.borderRadius = '12px';
+        setTimeout(() => grid.style.outline = '', 1500);
+        return;
+      }
+    }
+
+    sections.forEach(s => document.getElementById(s).classList.remove('active'));
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('active');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    updateProgress(id);
+  }
+
+  function updateProgress(currentId) {
+    const idx = sections.indexOf(currentId);
+    const pct = idx < 0 ? 100 : Math.round((idx / totalSteps) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  function submitForm() {
+    sections.forEach(s => document.getElementById(s).classList.remove('active'));
+    document.getElementById('thankyou').classList.add('active');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressPct').textContent = '100%';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  updateProgress('sec0');
+</script>
+</body>
+</html>
